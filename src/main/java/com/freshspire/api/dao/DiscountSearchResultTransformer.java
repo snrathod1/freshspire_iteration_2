@@ -3,7 +3,7 @@ package com.freshspire.api.dao;
 import com.freshspire.api.model.Chain;
 import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Product;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import org.hibernate.transform.ResultTransformer;
 
 import java.math.BigDecimal;
@@ -36,7 +36,7 @@ public class DiscountSearchResultTransformer implements ResultTransformer {
         d.setQuantity((int) row[7]);
         d.setUnit((String) row[8]);
 
-        Store s = new Store();
+        Distributor s = new Distributor();
         s.setStoreId(d.getStoreId());
         s.setChainId(d.getChainId());
         s.setDisplayName((String) row[9]);

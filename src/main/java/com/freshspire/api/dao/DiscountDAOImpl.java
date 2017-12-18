@@ -3,7 +3,7 @@ package com.freshspire.api.dao;
 import com.freshspire.api.model.Chain;
 import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Product;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import com.google.common.base.Strings;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;

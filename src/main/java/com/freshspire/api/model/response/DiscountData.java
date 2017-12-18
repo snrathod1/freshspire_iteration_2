@@ -2,11 +2,11 @@ package com.freshspire.api.model.response;
 
 import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Product;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 
 public class DiscountData {
     private Discount discount;
-    private Store store;
+    private Distributor store;
     private Product product;
     private double distance;
 
@@ -15,8 +15,8 @@ public class DiscountData {
 
             if (object instanceof Discount) {
                 this.discount = (Discount) object;
-            } else if (object instanceof Store) {
-                this.store = (Store) object;
+            } else if (object instanceof Distributor) {
+                this.store = (Distributor) object;
             } else if (object instanceof Product) {
                 this.product = (Product) object;
             } else if (object instanceof Double) {

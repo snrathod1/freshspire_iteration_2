@@ -2,7 +2,7 @@ package com.freshspire.api.utils;
 
 import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Product;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import com.freshspire.api.model.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -113,7 +113,7 @@ public class ResponseUtil {
      * @param status The desired HTTP status of the response
      * @return The HTTP response with the store JSON object in the response body
      */
-    public static ResponseEntity<String> makeStoreObjectResponse(Store store, HttpStatus status) {
+    public static ResponseEntity<String> makeStoreObjectResponse(Distributor store, HttpStatus status) {
         JsonObject storeJson = new JsonObject();
 
         storeJson.addProperty("storeId", store.getStoreId());

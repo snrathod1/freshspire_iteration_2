@@ -1,7 +1,7 @@
 package com.freshspire.api.dao;
 
 import com.freshspire.api.model.Discount;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import org.hibernate.Query;
@@ -25,14 +25,14 @@ public class StoreDAOImpl implements StoreDAO {
     }
 
     @Override
-    public void addStore(Store store) {
+    public void addStore(Distributor store) {
         Session session = getCurrentSession();
         session.persist(store);
         logger.info("Store saved : " + store);
     }
 
     @Override
-    public void updateStore(Store store) {
+    public void updateStore(Distributor store) {
         Session session = getCurrentSession();
         session.update(store);
         logger.info("Store updated : " + store);
@@ -44,25 +44,25 @@ public class StoreDAOImpl implements StoreDAO {
      * @return
      */
     @Override
-    public Store getStoreById(int storeId) {
+    public Distributor getStoreById(int storeId) {
         Session session = getCurrentSession();
         Query query = session.createQuery("From Store S where S.storeId = :storeId");
         query.setParameter("storeId", storeId);
-        Store store = (Store) query.uniqueResult();
+        Distributor store = (Distributor) query.uniqueResult();
 
         return store;
     }
 
     //TODO: get lat long from zipcode and then call getStoreByLocation (update: now stores has a zipCode column)
     @Override
-    public List<Store> getStoreByZip(int zipcode) {
+    public List<Distributor> getStoreByZip(int zipcode) {
         return null;
     }
 
-    public List<Store> getStoreByLocation(double latitude, double longitude) {
+    public List<Distributor> getStoreByLocation(double latitude, double longitude) {
         Session session = getCurrentSession();
         Query query = session.createSQLQuery("SELECT *, ( 3959 * acos( cos( radians( " + latitude + ") ) * cos( radians( latitude ) ) * cos( radians( longitude ) - radians(" + longitude + ") ) + sin( radians( " + latitude + ") ) * sin( radians( latitude ) ) ) ) AS distance FROM stores HAVING distance < 10 ORDER BY distance LIMIT 0 , 20;")
-                .addEntity(Store.class);
+                .addEntity(Distributor.class);
         return query.list();
     }
 
@@ -75,7 +75,7 @@ public class StoreDAOImpl implements StoreDAO {
         return query.list();
     }
 
-    public List<Store> getStores() {
+    public List<Distributor> getStores() {
         Session session = getCurrentSession();
         Query query = session.createQuery("From Store");
         return query.list();

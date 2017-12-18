@@ -1,18 +1,18 @@
 package com.freshspire.api.dao;
 
 import com.freshspire.api.model.Discount;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 
 import java.util.List;
 
 public interface StoreDAO {
 
-    void addStore(Store store);
-    void updateStore(Store store);
-    Store getStoreById(int storeId);
-    List<Store> getStoreByZip(int zipcode);
-    List<Store> getStoreByLocation(double latitude, double longitude);
+    void addStore(Distributor store);
+    void updateStore(Distributor store);
+    Distributor getStoreById(int storeId);
+    List<Distributor> getStoreByZip(int zipcode);
+    List<Distributor> getStoreByLocation(double latitude, double longitude);
     List<Discount> getDiscountsByStoreId(int storeId);
     List<Discount> getDiscountsByStoreId(int storeId, String query, String foodType);
-    List<Store> getStores();
+    List<Distributor> getStores();
 }

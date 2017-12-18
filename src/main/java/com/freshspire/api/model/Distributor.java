@@ -5,13 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="stores")
-public class Store {
+@Table(name="distributors")
+public class Distributor {
 
     @Id
-    @Column(name = "storeId")
+    @Column(name = "distributorId")
     @GeneratedValue
-    private int storeId;
+    private int distributorId;
 
     @Column(name = "chainId")
     private int chainId; // TODO specify this as a foreign key?
@@ -36,10 +36,28 @@ public class Store {
 
     @Column(name = "longitude")
     private double longitude;
+    
+    @Column(name = "POCfirstName")
+    private String POCfirstName;
+    
+    @Column(name = "POClastName")
+    private String POClastName;
+    
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+    
+    @Column(name = "email")
+    private String email;
+    
+    @Column(name = "foodsTheySell")
+    private String[] foodsTheySell;
+    
 
-    public Store() {}
+    public Distributor() {}
 
-    public Store(int chainId, String displayName, String street, String city, String state, String zipCode, double latitude, double longitude) {
+    public Distributor(int chainId, String displayName, String street, String city, String state, 
+    		String zipCode, double latitude, double longitude, String POCfirstName, String POClastName,
+    		String phoneNumber, String email, String[] foodsTheySell) {
         this.chainId = chainId;
         this.displayName = displayName;
         this.street = street;
@@ -48,14 +66,19 @@ public class Store {
         this.zipCode = zipCode;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.POCfirstName = POCfirstName;
+        this.POClastName = POClastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.foodsTheySell = foodsTheySell;
     }
 
-    public int getStoreId() {
-        return storeId;
+    public int getDistributorId() {
+        return distributorId;
     }
 
-    public void setStoreId(int storeId) {
-        this.storeId = storeId;
+    public void setDistributorId(int distributorId) {
+        this.distributorId = distributorId;
     }
 
     public int getChainId() {
@@ -121,9 +144,49 @@ public class Store {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
+    
+    public String getPOCfirstName() {
+        return POCfirstName;
+    }
+
+    public void setPOCfirstName(String POCfirstName) {
+        this.POCfirstName = POCfirstName;
+    }
+    
+    public String getPOClastName() {
+        return POClastName;
+    }
+
+    public void setPOClastName(String POClastName) {
+        this.POClastName = POClastName;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String[] getFoodsTheySell() {
+        return foodsTheySell;
+    }
+
+    public void setFoodsTheySell(String[] foodsTheySell) {
+        this.foodsTheySell = foodsTheySell;
+    }
 
     @Override
     public String toString() {
-        return this.storeId + " " + this.street + " " + this.latitude + " : " + this.longitude;
+        return this.distributorId + " " + this.street + " " + this.latitude + " : " + this.longitude;
     }
 }

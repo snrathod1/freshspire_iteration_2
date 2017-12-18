@@ -2,7 +2,7 @@ package com.freshspire.api.service;
 
 import com.freshspire.api.dao.StoreDAO;
 import com.freshspire.api.model.Discount;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,25 +19,25 @@ public class StoreServiceImpl implements StoreService {
 
     @Transactional
     @Override
-    public List<Store> getStores() {
+    public List<Distributor> getStores() {
         return storeDAO.getStores();
     }
 
     @Transactional
     @Override
-    public Store getStoreById(int storeId) {
+    public Distributor getStoreById(int storeId) {
         return storeDAO.getStoreById(storeId);
     }
 
     @Transactional
     @Override
-    public List<Store> getStoresByZipCode(int zipcode) {
+    public List<Distributor> getStoresByZipCode(int zipcode) {
         return storeDAO.getStoreByZip(zipcode);
     }
 
     @Transactional
     @Override
-    public List<Store> getStoresByLatLong(float latitude, float longitude) {
+    public List<Distributor> getStoresByLatLong(float latitude, float longitude) {
         return storeDAO.getStoreByLocation(latitude, longitude);
     }
 
@@ -55,7 +55,7 @@ public class StoreServiceImpl implements StoreService {
 
     @Transactional
     @Override
-    public void addStore(Store store) {
+    public void addStore(Distributor store) {
         storeDAO.addStore(store);
     }
 }

@@ -2,7 +2,7 @@ package com.freshspire.api.controller;
 
 import com.freshspire.api.TestConstants;
 import com.freshspire.api.model.Discount;
-import com.freshspire.api.model.Store;
+import com.freshspire.api.model.Distributor;
 import com.freshspire.api.model.User;
 import com.freshspire.api.service.DiscountService;
 import com.freshspire.api.service.StoreService;
@@ -86,12 +86,12 @@ public class StoreControllerTest {
     public void validAuthShouldReturnStoreList() throws Exception {
         // Set up
         User mockUser = mock(User.class);
-        List<Store> storeList = new ArrayList<Store>(5);
-        storeList.add(new Store(1, "Main Street HT", "123 Main St", "Boring", "OR", "33333", 12.3, 45.6));
-        storeList.add(new Store(1, "Second Street HT", "12 Second St", "Boring", "OR", "33334", 12.4, 45.2));
-        storeList.add(new Store(4, "Capital Square Food Lion", "18 Capital Square", "Raleigh", "NC", "55555", -4.567, 32.123));
-        storeList.add(new Store(5, "Abbey Road Corner Store", "225 Abbey Road", "Las Vegas", "NV", "44444", 45.678, 89.87654));
-        storeList.add(new Store(2, "Bay Ave Whole Foods", "007 Bay Avenue", "Miami", "FL", "123123", -35.5555, 77.88888));
+        List<Distributor> storeList = new ArrayList<Distributor>(5);
+        storeList.add(new Distributor(1, "Main Street HT", "123 Main St", "Boring", "OR", "33333", 12.3, 45.6));
+        storeList.add(new Distributor(1, "Second Street HT", "12 Second St", "Boring", "OR", "33334", 12.4, 45.2));
+        storeList.add(new Distributor(4, "Capital Square Food Lion", "18 Capital Square", "Raleigh", "NC", "55555", -4.567, 32.123));
+        storeList.add(new Distributor(5, "Abbey Road Corner Store", "225 Abbey Road", "Las Vegas", "NV", "44444", 45.678, 89.87654));
+        storeList.add(new Distributor(2, "Bay Ave Whole Foods", "007 Bay Avenue", "Miami", "FL", "123123", -35.5555, 77.88888));
 
         when(mockUserService.getUserByApiKey(TestConstants.VALID_API_KEY)).thenReturn(mockUser);
         when(mockStoreService.getStores()).thenReturn(storeList);
@@ -130,7 +130,7 @@ public class StoreControllerTest {
     public void noStoresInServiceLayerShouldReturnEmptyStoreList() throws Exception {
         // Set up
         User mockUser = mock(User.class);
-        List<Store> storeList = new ArrayList<Store>(0);
+        List<Distributor> storeList = new ArrayList<Distributor>(0);
 
         when(mockUserService.getUserByApiKey(TestConstants.VALID_API_KEY)).thenReturn(mockUser);
         when(mockStoreService.getStores()).thenReturn(storeList);
@@ -163,7 +163,7 @@ public class StoreControllerTest {
     @Test
     public void invalidAuthShouldNotReturnStore() throws Exception {
         // Set up
-        Store mockStore = mock(Store.class);
+        Distributor mockStore = mock(Distributor.class);
         when(mockUserService.getUserByApiKey(TestConstants.VALID_API_KEY)).thenReturn(null);
         when(mockStoreService.getStoreById(TestConstants.VALID_STORE_ID)).thenReturn(mockStore);
 
@@ -225,7 +225,7 @@ public class StoreControllerTest {
     public void validStoreIdShouldReturnStoreObject() throws Exception {
         // Set up
         User mockUser = mock(User.class);
-        Store store = new Store(TestConstants.VALID_CHAIN_ID,
+        Distributor store = new Distributor(TestConstants.VALID_CHAIN_ID,
                 TestConstants.VALID_DISPLAY_NAME, TestConstants.VALID_STREET, TestConstants.VALID_CITY, TestConstants.VALID_STATE,
                 TestConstants.VALID_ZIP_CODE, TestConstants.VALID_LATITUDE, TestConstants.VALID_LONGITUDE);
         store.setStoreId(TestConstants.VALID_STORE_ID);
