@@ -4,7 +4,7 @@ package com.freshspire.api.model.param;
  * This is the model for the request parameters
  */
 
-public class NewUserParams {
+public class NewBusinessParams {
 
     // Members
     private String firstName;
@@ -15,7 +15,7 @@ public class NewUserParams {
 
     private String validationCode;
 
-    public NewUserParams(String firstName, String phoneNumber, String password, String validationCode) {
+    public NewBusinessParams(String firstName, String phoneNumber, String password, String validationCode) {
         this.firstName = firstName;
         this.phoneNumber = phoneNumber;
         this.password = password;

@@ -3,7 +3,7 @@ package com.freshspire.api.model.param;
 /**
  * Parameters for creating a new store.
  */
-public class NewStoreParams {
+public class NewDistributorParams {
 
     private int chainId;
 
@@ -20,10 +20,22 @@ public class NewStoreParams {
     private double latitude;
 
     private double longitude;
+    
+    private String POCfirstName;
+    
+    private String POClastName;
+    
+    private String phoneNumber;
+    
+    private String email;
+    
+    private String[] foodsTheySell;
 
-    public NewStoreParams() {}
+    public NewDistributorParams() {}
 
-    public NewStoreParams(int chainId, String displayName, String street, String city, String state, String zipCode, float latitude, float longitude) {
+    public NewDistributorParams(int chainId, String displayName, String street, String city, String state, String zipCode, 
+    		float latitude, float longitude, String POCfirstName, String POClastName, String phoneNumber, String email,
+    		String[] foodsTheySell) {
         this.chainId = chainId;
         this.displayName = displayName;
         this.street = street;
@@ -32,6 +44,11 @@ public class NewStoreParams {
         this.zipCode = zipCode;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.POCfirstName = POCfirstName;
+        this.POClastName = POClastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.foodsTheySell = foodsTheySell;
     }
 
     public int getChainId() {
@@ -96,5 +113,44 @@ public class NewStoreParams {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+    public String getPOCfirstName() {
+        return POCfirstName;
+    }
+
+    public void setPOCfirstName(String POCfirstName) {
+        this.POCfirstName = POCfirstName;
+    }
+    
+    public String getPOClastName() {
+        return POClastName;
+    }
+
+    public void setPOClastName(String POClastName) {
+        this.POClastName = POClastName;
+    }
+    
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public String[] getFoodsTheySell() {
+        return foodsTheySell;
+    }
+
+    public void setFoodsTheySell(String[] foodsTheySell) {
+        this.foodsTheySell = foodsTheySell;
     }
 }

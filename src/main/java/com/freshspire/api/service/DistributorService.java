@@ -5,7 +5,7 @@ import com.freshspire.api.model.Distributor;
 
 import java.util.List;
 
-public interface StoreService {
+public interface DistributorService {
 
     List<Distributor> getStores();
     Distributor getStoreById(int storeId);

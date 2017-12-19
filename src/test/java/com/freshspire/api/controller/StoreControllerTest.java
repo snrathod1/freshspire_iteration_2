@@ -5,7 +5,7 @@ import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Distributor;
 import com.freshspire.api.model.User;
 import com.freshspire.api.service.DiscountService;
-import com.freshspire.api.service.StoreService;
+import com.freshspire.api.service.DistributorService;
 import com.freshspire.api.service.UserService;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -38,7 +38,7 @@ public class StoreControllerTest {
 
     @Mock private DiscountService mockDiscountService;
 
-    @Mock private StoreService mockStoreService;
+    @Mock private DistributorService mockStoreService;
 
     @Before
     public void setUp() {

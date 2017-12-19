@@ -203,12 +203,12 @@ public class UserControllerTest {
     @Test
     public void emptyParametersShouldNotCreateNewUser() throws Exception {
         // Set up empty param to send to method
-        NewUserParams emptyFirstNameParams = new NewUserParams(
+        NewBusinessParams emptyFirstNameParams = new NewBusinessParams(
                 "", // This is invalid
                 TestConstants.VALID_PHONE_NUMBER,
                 TestConstants.VALID_PASSWORD,
                 TestConstants.VALID_AUTHENTICATION_CODE);
-        NewUserParams emptyPasswordParams = new NewUserParams(
+        NewBusinessParams emptyPasswordParams = new NewBusinessParams(
                 TestConstants.VALID_FIRST_NAME,
                 TestConstants.VALID_PHONE_NUMBER,
                 "", // This is invalid (empty password)
@@ -257,7 +257,7 @@ public class UserControllerTest {
     @Test
     public void invalidAuthShouldNotCreateNewUser() throws Exception {
         // Set up test param and mock authy/user service objects
-        NewUserParams params = new NewUserParams(TestConstants.VALID_FIRST_NAME, TestConstants.VALID_PHONE_NUMBER, TestConstants.VALID_PASSWORD, "invalid code");
+        NewBusinessParams params = new NewBusinessParams(TestConstants.VALID_FIRST_NAME, TestConstants.VALID_PHONE_NUMBER, TestConstants.VALID_PASSWORD, "invalid code");
         Verification mockVerification = mock(Verification.class);
         when(mockAuthyClient.checkAuthentication(TestConstants.VALID_PHONE_NUMBER, "invalid code")).thenReturn(mockVerification);
         when(mockVerification.isOk()).thenReturn(false);
@@ -291,7 +291,7 @@ public class UserControllerTest {
     public void validParametersShouldCreateNewUser() throws Exception {
         // TODO this test doesn't pass because generated user has random API key and null userId
         // Set up test param and mock authy/user service objects
-        NewUserParams params = new NewUserParams(TestConstants.VALID_FIRST_NAME, TestConstants.VALID_PHONE_NUMBER, TestConstants.VALID_PASSWORD, TestConstants.VALID_AUTHENTICATION_CODE);
+        NewBusinessParams params = new NewBusinessParams(TestConstants.VALID_FIRST_NAME, TestConstants.VALID_PHONE_NUMBER, TestConstants.VALID_PASSWORD, TestConstants.VALID_AUTHENTICATION_CODE);
         Verification mockVerification = mock(Verification.class);
         when(mockAuthyClient.checkAuthentication(TestConstants.VALID_PHONE_NUMBER, TestConstants.VALID_AUTHENTICATION_CODE)).thenReturn(mockVerification);
         when(mockVerification.isOk()).thenReturn(true);

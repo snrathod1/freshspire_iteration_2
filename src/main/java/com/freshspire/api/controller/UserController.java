@@ -101,7 +101,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<String> createUser(@RequestBody NewUserParams params) {
+    public ResponseEntity<String> createUser(@RequestBody NewBusinessParams params) {
 
         String code = params.getValidationCode();
 

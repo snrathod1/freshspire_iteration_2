@@ -3,9 +3,9 @@ package com.freshspire.api.controller;
 import com.freshspire.api.model.Discount;
 import com.freshspire.api.model.Distributor;
 import com.freshspire.api.model.param.NewDiscountParams;
-import com.freshspire.api.model.param.NewStoreParams;
+import com.freshspire.api.model.param.NewDistributorParams;
 import com.freshspire.api.service.DiscountService;
-import com.freshspire.api.service.StoreService;
+import com.freshspire.api.service.DistributorService;
 import com.freshspire.api.service.UserService;
 import com.freshspire.api.utils.ResponseUtil;
 import com.google.gson.Gson;
@@ -24,7 +24,7 @@ import java.util.List;
 @RequestMapping("/stores")
 public class StoreController {
 
-    private StoreService storeService;
+    private DistributorService storeService;
 
     private UserService userService;
 
@@ -35,7 +35,7 @@ public class StoreController {
     private static final Logger logger = LoggerFactory.getLogger(StoreController.class);
 
     @Autowired
-    public void setStoreService(StoreService storeService) {
+    public void setStoreService(DistributorService storeService) {
         this.storeService = storeService;
     }
     
@@ -155,7 +155,7 @@ public class StoreController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = "application/json")
-    public ResponseEntity<String> addStore(@RequestBody NewStoreParams params) {
+    public ResponseEntity<String> addStore(@RequestBody NewDistributorParams params) {
         Distributor newStore = new Distributor(params.getChainId(), params.getDisplayName(), params.getStreet(), params.getCity(), params.getState(),
                 params.getZipCode(), params.getLatitude(), params.getLongitude());
 
